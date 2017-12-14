@@ -35,6 +35,7 @@
       <HintPath>..\packages\Castle.Core.4.2.1\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="FluentAssertions, Version=4.19.4.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentAssertions.4.19.4\lib\net45\FluentAssertions.dll</HintPath>
       <Private>True</Private>
@@ -119,18 +120,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Drivers\Project\CatalogContext_context.cs" />
+    <Compile Include="Drivers\Project\ProjectDrivers.cs" />
+    <Compile Include="Feature\edittest.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>edittest.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\UC.06.EditProjectAgency.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UC.06.EditProjectAgency.feature</DependentUpon>
+    </Compile>
     <Compile Include="Feature\Login.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Login.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StepDefintions\EdittestSteps.cs" />
     <Compile Include="StepDefintions\LoginSteps.cs" />
+    <Compile Include="StepDefintions\UC06_EditProjectAgencySteps.cs" />
     <Compile Include="Support\ActionResultExtensions.cs" />
     <Compile Include="Support\CatalogContext.cs" />
     <Compile Include="Support\DatabaseTools.cs" />
     <Compile Include="Support\HttpContextStub.cs" />
-    <Compile Include="Support\ReferenceBookList.cs" />
+    <Compile Include="Support\ReferenceProject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -138,6 +153,14 @@
     </None>
     <None Include="Default.srprofile">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Feature\edittest.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>edittest.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Feature\UC.06.EditProjectAgency.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UC.06.EditProjectAgency.feature.cs</LastGenOutput>
     </None>
     <None Include="Feature\Login.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

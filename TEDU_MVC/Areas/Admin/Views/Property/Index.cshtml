@@ -55,7 +55,7 @@
                             <tr class="odd gradeX">
                                 <td>
 
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.ID },new {id ="btn-Edit" }) |
                                     @Html.ActionLink("Details", "Details", new { id = item.ID }) |
                                     @*@Html.ActionLink("Delete", "Delete", new { id = item.ID })*@
                                     @Ajax.ActionLink("Delete", "Delete", new { id = item.ID }, new AjaxOptions

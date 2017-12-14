@@ -1,12 +1,12 @@
 ﻿namespace TEDU_MVC.AcceptanceTests.Support
 {
-    //public class CatalogContext
-    //{
-    //    public CatalogContext()
-    //    {
-    //        ReferenceBooks = new ReferenceBookList();
-    //    }
+    public class CatalogContext
+    {
+        public CatalogContext()
+        {
+            ReferenceProjectlist = new ReferenceProject();
+        }
 
-    //    public ReferenceBookList ReferenceBooks { get; set; }
-    //}
+        public ReferenceProject ReferenceProjectlist { get; set; }
+    }
 }
