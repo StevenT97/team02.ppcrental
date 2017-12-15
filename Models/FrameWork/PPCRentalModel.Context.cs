@@ -12,7 +12,6 @@ namespace Models.FrameWork
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Web;
     
     public partial class DemoPPCRentalEntities : DbContext
     {
@@ -43,7 +42,5 @@ namespace Models.FrameWork
         public virtual DbSet<WARD> WARDs { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<MenuType> MenuTypes { get; set; }
-
-       
     }
 }

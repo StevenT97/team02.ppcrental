@@ -25,6 +25,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -103,10 +104,6 @@
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SpecRun.SpecFlowPlugin, Version=1.6.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SpecRun.SpecFlow.2-2-0.1.6.3\lib\net45\SpecRun.SpecFlowPlugin.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.0\lib\net45\System.Diagnostics.DiagnosticSource.dll</HintPath>
@@ -129,18 +126,6 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="TechTalk.SpecFlow, Version=2.2.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
-      <HintPath>..\packages\SpecFlow.2.2.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="TechTalk.SpecRun, Version=1.6.3.0, Culture=neutral, PublicKeyToken=d0fc5cc18b3b389b, processorArchitecture=MSIL">
-      <HintPath>..\packages\SpecRun.SpecFlow.2-2-0.1.6.3\lib\net45\TechTalk.SpecRun.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="TechTalk.SpecRun.Common, Version=1.6.3.0, Culture=neutral, PublicKeyToken=d0fc5cc18b3b389b, processorArchitecture=MSIL">
-      <HintPath>..\packages\SpecRun.SpecFlow.2-2-0.1.6.3\lib\net45\TechTalk.SpecRun.Common.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -922,12 +907,6 @@
     <Content Include="Views\Layout\_LayoutPage2.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Shared\MainMenu.cshtml" />
-    <None Include="SpecRunTestProfile.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SpecRunTestProfile_2011_09.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

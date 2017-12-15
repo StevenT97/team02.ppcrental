@@ -61,3 +61,7 @@ D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\UiaComWrapper.dll
 D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\Interop.UIAutomationClient.dll
 D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\Microsoft.VisualStudio.TestTools.UITest.Common.xml
 D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\Microsoft.VisualStudio.TestTools.UITest.Extension.xml
+D:\CMU\Computer Science\New folder\GithubTeam02\TEDU_MVC.AcceptanceTests\obj\Debug\TEDU_MVC.AcceptanceTests.csprojResolveAssemblyReference.cache
+D:\CMU\Computer Science\New folder\GithubTeam02\TEDU_MVC.AcceptanceTests\obj\Debug\TEDU_MVC.AcceptanceTests.csproj.CoreCompileInputs.cache
+D:\CMU\Computer Science\New folder\GithubTeam02\TEDU_MVC.AcceptanceTests\obj\Debug\TEDU_MVC.AcceptanceTests.dll
+D:\CMU\Computer Science\New folder\GithubTeam02\TEDU_MVC.AcceptanceTests\obj\Debug\TEDU_MVC.AcceptanceTests.pdb

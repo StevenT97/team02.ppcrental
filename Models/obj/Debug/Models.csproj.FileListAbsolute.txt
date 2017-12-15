@@ -46,3 +46,34 @@ D:\BAckkup\TEDU\Models\bin\Debug\TechTalk.SpecFlow.dll
 D:\BAckkup\TEDU\Models\bin\Debug\TechTalk.SpecRun.Common.dll
 D:\BAckkup\TEDU\Models\bin\Debug\TechTalk.SpecRun.dll
 D:\BAckkup\TEDU\Models\bin\Debug\Newtonsoft.Json.xml
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\obj\Debug\Models.dll
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\obj\Debug\Models.pdb
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\Default.srprofile
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\Models.dll.config
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\Models.dll
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\Models.pdb
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\EntityFramework.dll
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\Newtonsoft.Json.dll
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\PagedList.dll
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\PagedList.Mvc.dll
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\System.Web.Helpers.dll
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\System.Web.Mvc.dll
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\System.Web.Razor.dll
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\System.Web.WebPages.dll
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\System.Web.WebPages.Razor.dll
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\EntityFramework.xml
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\Newtonsoft.Json.xml
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\PagedList.xml
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\PagedList.Mvc.xml
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\System.Web.Helpers.xml
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\System.Web.Mvc.xml
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\System.Web.Razor.xml
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\System.Web.WebPages.xml
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\bin\Debug\System.Web.WebPages.Razor.xml
+D:\CMU\Computer Science\New folder\GithubTeam02\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache

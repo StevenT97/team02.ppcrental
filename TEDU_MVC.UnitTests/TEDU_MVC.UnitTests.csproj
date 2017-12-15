@@ -52,10 +52,6 @@
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SpecRun.SpecFlowPlugin, Version=1.6.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SpecRun.SpecFlow.2-2-0.1.6.3\lib\net45\SpecRun.SpecFlowPlugin.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Web" />
@@ -85,18 +81,6 @@
     </Reference>
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="TechTalk.SpecFlow, Version=2.2.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
-      <HintPath>..\packages\SpecFlow.2.2.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="TechTalk.SpecRun, Version=1.6.3.0, Culture=neutral, PublicKeyToken=d0fc5cc18b3b389b, processorArchitecture=MSIL">
-      <HintPath>..\packages\SpecRun.SpecFlow.2-2-0.1.6.3\lib\net45\TechTalk.SpecRun.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="TechTalk.SpecRun.Common, Version=1.6.3.0, Culture=neutral, PublicKeyToken=d0fc5cc18b3b389b, processorArchitecture=MSIL">
-      <HintPath>..\packages\SpecRun.SpecFlow.2-2-0.1.6.3\lib\net45\TechTalk.SpecRun.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -135,12 +119,6 @@
     </None>
     <None Include="packages.config" />
     <None Include="runtests.cmd" />
-    <None Include="SpecRunTestProfile.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SpecRunTestProfile_2011_09.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup />
   <Choose>
