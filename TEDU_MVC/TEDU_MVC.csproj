@@ -881,6 +881,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\Project_TypeController.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -907,6 +908,8 @@
     <Content Include="Views\Layout\_LayoutPage2.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Shared\MainMenu.cshtml" />
+    <Content Include="Views\AboutUs\About.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

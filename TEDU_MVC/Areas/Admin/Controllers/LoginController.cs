@@ -96,12 +96,7 @@ namespace TEDU_MVC.Areas.Admin.Controllers
             var pro = db.PROPERTies.Where(x => x.UserID == id).ToList();
             return View(pro);
         }
-        public ActionResult Create()
-        {
-
-            ListAll();
-            return View();
-        }
+        
         public ActionResult Details(int id)
         {
             var pro = model.PROPERTies.Find(id);
@@ -111,111 +106,160 @@ namespace TEDU_MVC.Areas.Admin.Controllers
         }
 
         // POST: Admin/Property/Create
+        public ActionResult Create()
+        {
+            //PROPERTy obj = new PROPERTy();
+            //obj.fEATURE = db.FEATUREs.ToList();
+            //obj.GetFeatureList = db.PROPERTies.Select(x => new PROPERTy { FeatureID = x.ID, FeartureName = x.FeartureName }).ToList();
+
+            ListAll();
+            return View();
+        }
+        // POST: Admin/Property/Create
         [HttpPost]
         public ActionResult Create(PROPERTy property, List<HttpPostedFileBase> files)
         {
+            var session = (UserSession)Session[TEDU_MVC.Code.CommonConstant.USER_SESSION];
+            int idd = (int)session.UserID;
             ListAll();
-
-            try
+            var check = new AccountModel();
+            if (check.CheckPropertyName(property.PropertyName) || property.listfeature == null || files[0] == null)
             {
-
-                // Xu ly Avatar
-
-                string filename2 = Path.GetFileNameWithoutExtension(property.ImageFile2.FileName);
-                string extension2 = Path.GetExtension(property.ImageFile2.FileName);
-                filename2 = filename2 + DateTime.Now.ToString("yymmssfff") + extension2;
-                property.Avatar = filename2;
-                filename2 = Path.Combine(Server.MapPath("~/Avatar"), filename2);
-                property.ImageFile2.SaveAs(filename2);
-
-
-
-                // Images
-
-                string filename = Path.GetFileNameWithoutExtension(property.ImageFile.FileName);
-                string extension = Path.GetExtension(property.ImageFile.FileName);
-                filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
-                property.Images = filename;
-                filename = Path.Combine(Server.MapPath("~/Images"), filename);
-                property.ImageFile.SaveAs(filename);
-
-
-
-
-
-                property.Created_at = DateTime.Parse(DateTime.Now.ToShortDateString());
-                property.UserID = id;
-                property.Status_ID = 1;
-
-                if (ModelState.IsValid)
+                if (property.listfeature == null)
                 {
-                    var model = new AccountModel();
-                    long id = model.InsertProperty(property);
+                    ModelState.AddModelError("", "Feature không được bỏ trống");
+                }
+                if (files[0] == null)
+                {
+                    ModelState.AddModelError("", "Thêm ảnh chi tiết cho dự án");
+                }
+                ModelState.AddModelError("", "PropertyName bị trùng");
+            }
+            else
+            {
+                try
+                {
 
-                    // SavemultiImage ----------------------------
-                    var path = "";
-                    foreach (var item in files)
+                    // Xu ly Avatar
+
+                    string filename2 = Path.GetFileNameWithoutExtension(property.ImageFile2.FileName);
+                    string extension2 = Path.GetExtension(property.ImageFile2.FileName);
+                    filename2 = filename2 + DateTime.Now.ToString("yymmssfff") + extension2;
+                    property.Avatar = filename2;
+                    filename2 = Path.Combine(Server.MapPath("~/Avatar"), filename2);
+                    property.ImageFile2.SaveAs(filename2);
+
+
+
+                    // Images
+
+                    //string filename = Path.GetFileNameWithoutExtension(property.ImageFile.FileName);
+                    //string extension = Path.GetExtension(property.ImageFile.FileName);
+                    //filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+                    //property.Images = filename;
+                    //filename = Path.Combine(Server.MapPath("~/Images"), filename);
+                    //property.ImageFile.SaveAs(filename);
+
+
+
+
+
+                    property.Created_at = DateTime.Parse(DateTime.Now.ToShortDateString());
+                    property.UserID = idd;
+                    property.Status_ID = 1;
+
+                    if (ModelState.IsValid)
                     {
-                        if (item != null)
+                        var model = new AccountModel();
+                        long id = model.InsertProperty(property);
+                        // Save Feature
+                        PROPERTY_FEATURE pf = new PROPERTY_FEATURE();
+
+                        foreach (string x in property.listfeature)
                         {
-                            if (item.ContentLength > 0)
+                            pf.Property_ID = (int)id;
+                            pf.Feature_ID = int.Parse(x);
+                            db.PROPERTY_FEATURE.Add(pf);
+                            db.SaveChanges();
+                        }
+
+
+                        // End Save Fearture
+                        // SavemultiImage ----------------------------
+                        var path = "";
+                        foreach (var item in files)
+                        {
+                            if (item != null)
                             {
-                                if (Path.GetExtension(item.FileName).ToLower() == ".jpg"
-                                    || Path.GetExtension(item.FileName).ToLower() == ".png"
-                                    || Path.GetExtension(item.FileName).ToLower() == ".gif"
-                                    || Path.GetExtension(item.FileName).ToLower() == ".jpeg")
+                                if (item.ContentLength > 0)
                                 {
-                                    var path0 = id + item.FileName;
-                                    path = Path.Combine(Server.MapPath("~/MultiImages"), path0);
+                                    if (Path.GetExtension(item.FileName).ToLower() == ".jpg"
+                                        || Path.GetExtension(item.FileName).ToLower() == ".png"
+                                        || Path.GetExtension(item.FileName).ToLower() == ".gif"
+                                        || Path.GetExtension(item.FileName).ToLower() == ".jpeg")
+                                    {
+                                        var path0 = id + item.FileName;
+                                        path = Path.Combine(Server.MapPath("~/MultiImages"), path0);
 
-                                    item.SaveAs(path);
-                                    ViewBag.UploadSuccess = true;
+                                        item.SaveAs(path);
+                                        ViewBag.UploadSuccess = true;
 
+                                    }
                                 }
                             }
                         }
-                    }
-                    // End SaveMultiImage -------------------------
+                        // End SaveMultiImage -------------------------
 
-                    if (id > 0)
-                    {
-                        return RedirectToAction("ListAgency", "Login");
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("", "Create Property khong thanh cong");
+                        if (id > 0)
+                        {
+                            return RedirectToAction("ListAgency", "Login");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", "Create Property khong thanh cong");
+
+                        }
 
                     }
 
                 }
-
-            }
-            catch (NullReferenceException)
-            {
-
-                property.Created_at = DateTime.Parse(DateTime.Now.ToShortDateString());
-
-                ListAll();
-                property.UserID = id;
-                property.Status_ID = 1;
-
-                if (ModelState.IsValid)
+                catch (NullReferenceException)
                 {
-                    var model = new AccountModel();
-                    long id = model.InsertProperty(property);
-                    if (id > 0)
+
+                    property.Created_at = DateTime.Parse(DateTime.Now.ToShortDateString());
+
+                    ListAll();
+                    property.UserID = idd;
+                    property.Status_ID = 1;
+
+                    if (ModelState.IsValid)
                     {
-                        return RedirectToAction("ListAgency", "Login");
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("", "Create Property khong thanh cong");
+                        var model = new AccountModel();
+                        long id = model.InsertProperty(property);
+                        PROPERTY_FEATURE pf = new PROPERTY_FEATURE();
+                        foreach (string x in property.listfeature)
+                        {
+                            pf.Property_ID = (int)id;
+                            pf.Feature_ID = int.Parse(x);
+                            db.PROPERTY_FEATURE.Add(pf);
+                            db.SaveChanges();
+                        }
+
+
+
+                        if (id > 0)
+                        {
+                            return RedirectToAction("ListAgency", "Login");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", "Create Property khong thanh cong");
+
+                        }
 
                     }
-
                 }
             }
-
 
             return View();
         }

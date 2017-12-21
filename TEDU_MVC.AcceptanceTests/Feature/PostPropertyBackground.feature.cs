@@ -31,10 +31,8 @@ namespace TEDU_MVC.AcceptanceTests.Feature
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "PostPropertyBackground", "In order to avoid silly mistakes\r\nAs a math idiot\r\nI want to be told the sum of t" +
-                    "wo numbers", ProgrammingLanguage.CSharp, new string[] {
-                        "automated",
-                        "*update"});
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "PostPropertyBackground", "In order to avoid silly mistakes\nAs a math idiot\nI want to be told the sum of two" +
+                    " numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -71,217 +69,24 @@ namespace TEDU_MVC.AcceptanceTests.Feature
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void FeatureBackground()
-        {
-#line 8
-#line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "PropertyName",
-                        "Content",
-                        "Price",
-                        "PropertyType",
-                        "District",
-                        "UserID",
-                        "StatusID"});
-            table1.AddRow(new string[] {
-                        "Gojko Adzic",
-                        "Specification By Example",
-                        "1200",
-                        "1",
-                        "2",
-                        "1",
-                        "3"});
-            table1.AddRow(new string[] {
-                        "Eckhart Tolle",
-                        "The Power of Now",
-                        "1200",
-                        "2",
-                        "3",
-                        "12",
-                        "3"});
-            table1.AddRow(new string[] {
-                        "Jeff Sutherland",
-                        "Scrum: The Art of Doing Twice the Work in Half the Time",
-                        "1600",
-                        "3",
-                        "4",
-                        "1",
-                        "3"});
-            table1.AddRow(new string[] {
-                        "Mitch Lacey",
-                        "The Scrum Field Guide",
-                        "1500",
-                        "4",
-                        "3",
-                        "12",
-                        "3"});
-            table1.AddRow(new string[] {
-                        "Martin Fowler",
-                        "Analysis Patterns",
-                        "5000",
-                        "1",
-                        "2",
-                        "1",
-                        "3"});
-            table1.AddRow(new string[] {
-                        "Eric Evans",
-                        "Domain Driven Design",
-                        "4600",
-                        "2",
-                        "4",
-                        "12",
-                        "3"});
-            table1.AddRow(new string[] {
-                        "Ted Pattison",
-                        "Inside Windows SharePoint Services",
-                        "3100",
-                        "3",
-                        "3",
-                        "1",
-                        "3"});
-            table1.AddRow(new string[] {
-                        "Lisa Crispin and Janet Gregory",
-                        "Agile Testing",
-                        "2000",
-                        "4",
-                        "2",
-                        "12",
-                        "3"});
-            table1.AddRow(new string[] {
-                        "Esther Derby and Diana Larsen",
-                        "Agile Retrospectives",
-                        "1600",
-                        "1",
-                        "4",
-                        "1",
-                        "3"});
-#line 9
- testRunner.Given("the following property", ((string)(null)), table1, "Given ");
-#line hidden
-        }
-        
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Successfull Creating New Property")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add two numbers")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PostPropertyBackground")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("automated")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("*update")]
-        public virtual void SuccessfullCreatingNewProperty()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("mytag")]
+        public virtual void AddTwoNumbers()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfull Creating New Property", ((string[])(null)));
-#line 22
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", new string[] {
+                        "mytag"});
+#line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
-this.FeatureBackground();
-#line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "PropertyName",
-                        "Content",
-                        "Price",
-                        "PropertyType",
-                        "District",
-                        "UserID",
-                        "StatusID"});
-            table2.AddRow(new string[] {
-                        "New Create Property",
-                        "Example",
-                        "1200",
-                        "1",
-                        "2",
-                        "1",
-                        "3"});
-#line 23
- testRunner.When("I input the following information", ((string)(null)), table2, "When ");
-#line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                        "PropertyName",
-                        "Content",
-                        "Price",
-                        "PropertyType",
-                        "District",
-                        "UserID",
-                        "StatusID"});
-            table3.AddRow(new string[] {
-                        "Gojko Adzic",
-                        "Specification By Example",
-                        "1200",
-                        "1",
-                        "2",
-                        "1",
-                        "3"});
-            table3.AddRow(new string[] {
-                        "Eckhart Tolle",
-                        "The Power of Now",
-                        "1200",
-                        "2",
-                        "3",
-                        "12",
-                        "3"});
-            table3.AddRow(new string[] {
-                        "Jeff Sutherland",
-                        "Scrum: The Art of Doing Twice the Work in Half the Time",
-                        "1600",
-                        "3",
-                        "4",
-                        "1",
-                        "3"});
-            table3.AddRow(new string[] {
-                        "Mitch Lacey",
-                        "The Scrum Field Guide",
-                        "1500",
-                        "4",
-                        "3",
-                        "12",
-                        "3"});
-            table3.AddRow(new string[] {
-                        "Martin Fowler",
-                        "Analysis Patterns",
-                        "5000",
-                        "1",
-                        "2",
-                        "1",
-                        "3"});
-            table3.AddRow(new string[] {
-                        "Eric Evans",
-                        "Domain Driven Design",
-                        "4600",
-                        "2",
-                        "4",
-                        "12",
-                        "3"});
-            table3.AddRow(new string[] {
-                        "Ted Pattison",
-                        "Inside Windows SharePoint Services",
-                        "3100",
-                        "3",
-                        "3",
-                        "1",
-                        "3"});
-            table3.AddRow(new string[] {
-                        "Lisa Crispin and Janet Gregory",
-                        "Agile Testing",
-                        "2000",
-                        "4",
-                        "2",
-                        "12",
-                        "3"});
-            table3.AddRow(new string[] {
-                        "Esther Derby and Diana Larsen",
-                        "Agile Retrospectives",
-                        "1600",
-                        "1",
-                        "4",
-                        "1",
-                        "3"});
-            table3.AddRow(new string[] {
-                        "New Create Property",
-                        "Example",
-                        "1200",
-                        "1",
-                        "2",
-                        "1",
-                        "3"});
-#line 26
- testRunner.Then("the list of books should update", ((string)(null)), table3, "Then ");
+ testRunner.Given("I have entered 50 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 9
+ testRunner.And("I have entered 70 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
+ testRunner.When("I press add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 11
+ testRunner.Then("the result should be 120 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

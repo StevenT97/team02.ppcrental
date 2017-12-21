@@ -1,0 +1,18 @@
+﻿@model Models.FrameWork.About_Us
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/_LayoutPage1.cshtml";
+}
+<div class="content abt">
+    <div class="image group">
+        <div class="grid span_2_of_3">
+            <h3>About Us</h3>
+            <p>@Html.DisplayFor(model => model.Content)</p>
+            <div class="btn1"><a href="details.html"><img src="images/btn.png" alt="">read more</a></div>
+        </div>
+        <div class="grid images_3_of_1">
+            <a href="details.html"><img src="~/Images/@Model.Images"></a>
+        </div>
+    </div>
+</div>
