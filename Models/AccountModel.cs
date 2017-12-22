@@ -25,6 +25,11 @@ namespace Models
         {
             db = new DemoPPCRentalEntities();
         }
+        public bool CheckUserName(string email)
+        {
+
+            return db.USERs.Count(x => x.Email == email) > 0;
+        }
         public long Insert(USER entity)
         {
             db.USERs.Add(entity);

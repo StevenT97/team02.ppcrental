@@ -25,6 +25,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -760,6 +761,7 @@
     <Content Include="Images\PIS_7389-Edit-stamp.jpg" />
     <Content Include="Images\PIS_7432-Edit-stamp.jpg" />
     <Content Include="Images\sunshine-benthanh-cityhome-10-stamp.jpg" />
+    <Content Include="Images\logo.png" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Areas\Admin\Views\web.config">
