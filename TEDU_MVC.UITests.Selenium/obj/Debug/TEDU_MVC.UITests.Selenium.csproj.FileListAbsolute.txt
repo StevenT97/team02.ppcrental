@@ -42,3 +42,11 @@ D:\BAckkup\TEDU\TEDU_MVC.UITests.Selenium\bin\Debug\TechTalk.SpecRun.Common.dll
 D:\BAckkup\TEDU\TEDU_MVC.UITests.Selenium\bin\Debug\TechTalk.SpecRun.dll
 D:\BAckkup\TEDU\TEDU_MVC.UITests.Selenium\bin\Debug\EntityFramework.SqlServer.dll
 D:\BAckkup\TEDU\TEDU_MVC.UITests.Selenium\bin\Debug\EntityFramework.SqlServer.xml
+D:\BAckkup\TEDU\TEDU_MVC.UITests.Selenium\bin\Debug\FluentAssertions.dll
+D:\BAckkup\TEDU\TEDU_MVC.UITests.Selenium\bin\Debug\FluentAssertions.Core.dll
+D:\BAckkup\TEDU\TEDU_MVC.UITests.Selenium\bin\Debug\FluentAssertions.pdb
+D:\BAckkup\TEDU\TEDU_MVC.UITests.Selenium\bin\Debug\FluentAssertions.xml
+D:\BAckkup\TEDU\TEDU_MVC.UITests.Selenium\bin\Debug\FluentAssertions.Core.pdb
+D:\BAckkup\TEDU\TEDU_MVC.UITests.Selenium\bin\Debug\FluentAssertions.Core.xml
+D:\BAckkup\TEDU\TEDU_MVC.UITests.Selenium\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\BAckkup\TEDU\TEDU_MVC.UITests.Selenium\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml

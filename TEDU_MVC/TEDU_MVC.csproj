@@ -54,6 +54,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="LinqKit.EntityFramework, Version=1.1.9.0, Culture=neutral, PublicKeyToken=b6c8cfc71f7a6a80, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqKit.EntityFramework.1.1.9.0\lib\net45\LinqKit.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -749,6 +753,7 @@
     <Content Include="GiaoDienChinh\Select2\js\select2.js" />
     <Content Include="GiaoDienChinh\Select2\js\select2.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="Images\abt-pic.jpg" />
     <Content Include="Images\AvatarNull.png" />
     <Content Include="Images\ImagesNull.png" />
     <Content Include="Images\PIS3280-Edit-stamp.jpg" />
@@ -817,7 +822,6 @@
     <Content Include="Assets\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="Assets\vendor\font-awesome\scss\_variables.scss" />
     <Content Include="Areas\Admin\Views\Shared\LeftMenu.cshtml" />
-    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Project_Type\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Project_Type\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
@@ -827,7 +831,6 @@
     <Content Include="Areas\Admin\Views\_USER\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Property\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Property\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Property\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Property\Details.cshtml" />
     <Content Include="Areas\Agency\Views\web.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -867,6 +870,9 @@
     <Content Include="Default.srprofile">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Areas\Admin\Views\_USER\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\LoginAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\IndexSale.cshtml" />
     <None Include="scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
@@ -885,6 +891,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\PropertyController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Controllers\_USERController.cs" />
@@ -896,9 +903,11 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\Project_TypeController.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="DataViewModel\Feature.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -928,6 +937,8 @@
     <None Include="SpecRunTestProfile_2011_09.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\AboutUs\About.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

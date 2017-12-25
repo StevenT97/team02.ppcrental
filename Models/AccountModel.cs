@@ -27,30 +27,50 @@ namespace Models
         }
         public long Insert(USER entity)
         {
+            if (entity.Email == null)
+            {
+                return -1;
+            }
+            else { 
             db.USERs.Add(entity);
             db.SaveChangesAsync();
             return entity.ID;
+            }
         }
+        public bool CheckUserName(string email)
+        {
+
+            return db.USERs.Count(x => x.Email == email) > 0;
+        }
+        public bool CheckPropertyName(string property)
+        {
+
+            return db.PROPERTies.Count(x => x.PropertyName == property) > 0;
+        }
+        public long InsertProjectFeature(PROPERTY_FEATURE entity)
+        {
+            db.PROPERTY_FEATURE.Add(entity);
+            db.SaveChangesAsync();
+            return entity.ID;
+        }
+
         public long InsertProperty(PROPERTy entity)
         {
-            if (entity.ImageFile == null)
-            {
-                entity.Images = "ImagesNull.png";
-            }
+           
             if (entity.ImageFile2 == null)
             {
-                entity.Avatar = "AvatarNull.png";
+                entity.Avatar = "ImagesNull.png";
                
             }
-            if (entity.District_ID ==null)
-            {
-                entity.District_ID = null ;
-            }
-            if (entity.Status_ID == null)
-            {
-                entity.District_ID = null;
-            }
-
+            //if (entity.District_ID ==null)
+            //{
+            //    entity.District_ID = null ;
+            //}
+            //if (entity.Status_ID == null)
+            //{
+            //    entity.District_ID = null;
+            //}
+            entity.UnitPrice = "VND";
 
             db.PROPERTies.Add(entity);
             db.SaveChanges();
@@ -75,6 +95,27 @@ namespace Models
         {
             return db.PROPERTies.Find(id);
         }
+        public USER EditUser(int id)
+        {
+            return db.USERs.Find(id);
+        }
+        public bool UpdateUser(USER users)
+        {
+            try
+            {
+                var user = db.USERs.Find(users.ID);
+                user.FullName = users.FullName;
+                user.Phone = users.Phone;
+                user.Address = users.Address;
+                db.SaveChanges();
+                return true;
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
         public bool Update(PROPERTy entitys)
         {
             try
@@ -83,14 +124,14 @@ namespace Models
 
                 property.PropertyName = entitys.PropertyName;
                // save images
-                if (entitys.ImageFile == null)
-                {
-                    //entitys.Images = "ImagesNull.png";
-                }
-                else
-                {
-                    property.Images = entitys.Images;
-                }
+                //if (entitys.ImageFile == null)
+                //{
+                //    //entitys.Images = "ImagesNull.png";
+                //}
+                //else
+                //{
+                //    property.Images = entitys.Images;
+                //}
                 // save avatar
                 if (entitys.ImageFile2 == null)
                 {
@@ -173,6 +214,24 @@ namespace Models
             return data.Select(x => x.RoleID).ToList();
             
         }
+        public List<string> GetListFeature(int id)
+        {
+            var property = db.PROPERTies.Single(x => x.ID == id);
+            var data = (from a in db.PROPERTY_FEATURE
+                        join b in db.FEATUREs on a.Feature_ID equals b.ID
+                        join c in db.PROPERTies on a.Property_ID equals c.ID
+                        where b.ID == property.ID
+                        select new
+                        {
+                            Property_ID = a.Property_ID,
+                            Feature_ID = a.Feature_ID
+                        }).AsEnumerable().Select(x => new PROPERTY_FEATURE()
+                        {
+                            Property_ID = x.Property_ID,
+                            Feature_ID = x.Feature_ID
+                        });
+            return data.Select(x=>x.FEATURE.FeatureName).ToList();
+        }
       
         public int Login(string userName, string passWord, bool isLoginAdmin = false)
         {
@@ -188,7 +247,7 @@ namespace Models
             {
                 if (isLoginAdmin == true)
                 {
-                    if (res.GroupID.Equals(CommonConstants.SALE_GROUP) || res.GroupID == CommonConstants.AGENCY_GROUP)
+                    if (res.GroupID.Equals(CommonConstants.SALE_GROUP) || res.GroupID == CommonConstants.AGENCY_GROUP|| res.GroupID == CommonConstants.IT_GROUP)
                     {
                         if (res.Status == false)
                         {

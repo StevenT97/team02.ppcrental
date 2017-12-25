@@ -1,4 +1,5 @@
-﻿<div class="navbar-default sidebar" role="navigation">
+﻿@using TEDU_MVC.Areas.Admin.Code;
+<div class="navbar-default sidebar" role="navigation">
     <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
             <li class="sidebar-search">
@@ -12,15 +13,27 @@
                 </div>
                 <!-- /input-group -->
             </li>
+            @{
+                try
+                {
+                    var session = (UserSession)Session[TEDU_MVC.Code.CommonConstant.USER_SESSION];
+                    <li>
+                        <a href="~/Admin/_USER/Edit/@session.UserID"><i class="fa fa-user fa-fw"></i> Profile</a>
+                    </li>
+                }
+                catch (NullReferenceException)
+                {
+                    Response.Redirect("~/Admin/LoginAdmin/Index");
+                }
+            }
             <li>
                 <a href="~/Home/Index"><i class="fa fa-dashboard fa-fw"></i> Trang Chủ</a>
             </li>
+          
+            @* Menu IT*@
             <li>
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Kỹ Thuật<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li>
-                        <a href="~/Admin/Property/Index">List of Project</a>
-                    </li>
                     <li>
                         <a href="~/Admin/User/Index">User</a>
                     </li>
@@ -29,22 +42,22 @@
             </li>
             @* Menu Sale*@
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Sale<span class="fa arrow"></span></a>
+                <a id="menu-sale" href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Sale<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li>
+                    <li id="list-sale-project">
                         <a href="~/Admin/Property/Index">List of Project</a>
                     </li>
                     <li>
-                        <a href="~/Admin/User/Index">User</a>
+                        <a href="~/Admin/User/IndexSale">User</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
             @*Menu Agency*@
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Agency<span class="fa arrow"></span></a>
+                <a id="menu-agency" href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Agency<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li>
+                    <li id="list-of-agency">
                        
                         <a href="~/Admin/Login/ListAgency">List of Agency</a>
                     </li>

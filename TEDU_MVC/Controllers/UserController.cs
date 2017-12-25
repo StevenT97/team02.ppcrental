@@ -21,37 +21,52 @@ namespace TEDU_MVC.Controllers
         public JsonResult Send(string name, string email, string password, string phone, string address)
         {
            var user = new USER();
-            user.FullName = name;
-            user.Email = email;
+            var account = new AccountModel();
+            if (account.CheckUserName(email))
+            {
+                ModelState.AddModelError("","Email đã tồn tại");
+                return Json(new
+                {
+                    status = false
+                });
+            }
+            else
+            {
+                user.FullName = name;
+                user.Email = email;
 
-            var encryptedMd5Pas = MaHoa.MD5Hash(password);
-            user.Password = encryptedMd5Pas;
-            user.Phone = phone;
-            user.Address = address;
-            user.GroupID = "AGENCY";
-            user.Role = "2";
-            user.Status = false;
+                var encryptedMd5Pas = MaHoa.MD5Hash(password);
+                user.Password = encryptedMd5Pas;
+                user.Phone = phone;
+                user.Address = address;
+                user.GroupID = "AGENCY";
+                user.Role = "2";
+                user.Status = false;
 
+               
+            }
             var id = new AccountModel().Insert(user);
-            if (id >= 0)
+            if (id > 0)
             {
-            return Json(new
-            {
-                status = true
-            });
-            //send mail
-        }
+                return Json(new
+                {
+                    status = true
+                });
+                //send mail
+            }
 
             else
                 return Json(new
                 {
                     status = false
                 });
- 
+
+
         }
         [HttpPost]
-        public ActionResult Register(string Username, string Email)
+        public ActionResult Register(string inputName,string inputEmail,string inputPasswordConfirm,string inputPhone,string inputAddress)
         {
+
             return View();
         }
 

@@ -64,25 +64,43 @@ namespace TEDU_MVC.Areas.Admin.Controllers
         }
 
         // GET: Admin/_USER/Edit/5
+       
         public ActionResult Edit(int id)
         {
-            return View();
+            var user = new AccountModel().EditUser(id);
+            return View(user);
         }
 
         // POST: Admin/_USER/Edit/5
+
+      
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, USER users)
         {
             try
             {
-                // TODO: Add update logic here
+                if (ModelState.IsValid)
+                {
 
-                return RedirectToAction("Index");
+                    var model = new AccountModel();
+                    var res = model.UpdateUser(users);
+                    if (res)
+                    {
+                        return RedirectToAction("EDIT","_USER");
+                    }
+                    
+                    else
+                    {
+                        ModelState.AddModelError("", "Update không thành công");
+                    }
+                }
             }
             catch
             {
-                return View();
+                return View("ListAgency","Login");
             }
+            return View();
+
         }
 
         // GET: Admin/_USER/Delete/5

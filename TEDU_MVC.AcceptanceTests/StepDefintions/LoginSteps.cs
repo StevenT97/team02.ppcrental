@@ -10,7 +10,7 @@ using System.Threading;
 
 namespace TEDU_MVC.AcceptanceTests.StepDefintions
 {
-    [Binding,Scope(Tag = "autmatic")]
+    [Binding,Scope(Tag = "automated")]
   public  class LoginSteps
     {
         private IWebDriver driver = new FirefoxDriver();

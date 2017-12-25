@@ -8,8 +8,8 @@
     Xem Chi Tiet
 }
 <div>
-    <h4>PROPERTy</h4>
-    <hr />
+    @*<h4>PROPERTy</h4>
+    <hr />*@
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.PropertyName)
@@ -27,13 +27,13 @@
             <img src="~/Avatar/@Model.Avatar" width="100px">
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.Images)
         </dt>
 
         <dd>
-         <img src="~/Images/@Model.Images"  width="100px">
-        </dd>
+            <img src="~/Images/@Model.Images" width="100px">
+        </dd>*@
         @* Start Xuat mutil Image*@
 
         <dt>
@@ -41,18 +41,18 @@
         </dt>
 
         <dd>
-           @{
-               foreach (var image in (IEnumerable<string>)ViewBag.Images)
-               {
-              
-                   if (image.Contains(Model.ID.ToString()))
-                   {
+            @{
+                foreach (var image in (IEnumerable<string>)ViewBag.Images)
+                {
 
-                    <img src="@Url.Content(image)" width="100px" />
-                   }
+                    if (image.Contains(Model.ID.ToString()))
+                    {
 
-               }
-        }
+                        <img src="@Url.Content(image)" width="100px" />
+                    }
+
+                }
+            }
         </dd>
         @* End Xuat multi Images*@
         <dt>
@@ -109,6 +109,31 @@
 
         <dd>
             @Html.DisplayFor(model => model.PackingPlace)
+        </dd>
+
+        @*
+
+        *@
+
+        <dt>
+            <label>FEATURE</label>
+        </dt>
+
+        <dd>
+            @{
+
+                foreach (var feature in ViewBag.features)
+                {
+                    foreach (var fes in ViewBag.fea)
+                    {
+                        if (feature.Feature_ID == fes.ID)
+                        {
+                            <p>@fes.FeatureName</p>
+                        }
+                    }
+
+                }
+            }
         </dd>
 
         <dt>
@@ -183,25 +208,18 @@
             @Html.DisplayFor(model => model.USER.Email)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.USER1.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.USER1.Email)
-        </dd>
-
         @*<dt>
-            @Html.DisplayNameFor(model => model.WARD.WardName)
-        </dt>
+                @Html.DisplayNameFor(model => model.WARD.WardName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.WARD.WardName)
-        </dd>*@
+            <dd>
+                @Html.DisplayFor(model => model.WARD.WardName)
+            </dd>*@
 
     </dl>
+
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "ListAgency", "Login")
 </p>

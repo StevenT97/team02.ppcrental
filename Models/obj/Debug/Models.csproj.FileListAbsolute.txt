@@ -12,7 +12,6 @@ C:\Users\Shayne\documents\visual studio 2015\Projects\TEDU\Models\bin\Debug\Page
 C:\Users\Shayne\documents\visual studio 2015\Projects\TEDU\Models\bin\Debug\PagedList.Mvc.dll
 C:\Users\Shayne\documents\visual studio 2015\Projects\TEDU\Models\bin\Debug\PagedList.xml
 C:\Users\Shayne\documents\visual studio 2015\Projects\TEDU\Models\bin\Debug\PagedList.Mvc.xml
-D:\BAckkup\TEDU\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
 D:\BAckkup\TEDU\Models\obj\Debug\Models.dll
 D:\BAckkup\TEDU\Models\obj\Debug\Models.pdb
 D:\BAckkup\TEDU\Models\bin\Debug\Models.dll.config
@@ -46,3 +45,4 @@ D:\BAckkup\TEDU\Models\bin\Debug\TechTalk.SpecFlow.dll
 D:\BAckkup\TEDU\Models\bin\Debug\TechTalk.SpecRun.Common.dll
 D:\BAckkup\TEDU\Models\bin\Debug\TechTalk.SpecRun.dll
 D:\BAckkup\TEDU\Models\bin\Debug\Newtonsoft.Json.xml
+D:\BAckkup\TEDU\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache

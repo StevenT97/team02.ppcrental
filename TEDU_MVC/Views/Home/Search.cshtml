@@ -18,17 +18,20 @@
             <div class="section group">
                 @*==================*@
                 <div class="grid_1_of_3 images_1_of_3" style="margin-left:55px;width:94%;">
-                    <h3 style="color: white;">Find Your Property</h3>
+                    <h2 style="color: white;">Find Your Property</h2>
                     <form role="search" action="@Url.Action("Search","Home")" method="get">
 
-                        @Html.DropDownList("Quan", Quans, "Chọn quận...", new { @id = "Quan" })   
-                        @Html.DropDownList("Duong", Duongs, "Chọn đường...", new { @id = "Duong" })  
-                        @Html.DropDownList("Type", Types, "Chọn type...", new { @id = "Type" })  
+                        @Html.DropDownList("Quan", Quans, "Chọn quận...")
+                        @*@Html.DropDownList("Duong", Duongs, "Chọn đường...")*@
+                        @Html.DropDownList("Type", Types, "Chọn type...")
 
-                     
-                        <input type="text" placeholder="Search" name="text">
-                     
-                        <button type="submit">Submit</button>
+                        <input id="minPrice" type="number" min="0" max="999999999" placeholder="Nhập Giá Min" name="minPrice" />
+
+                        <input id="maxPrice" type="number" min="1000" max="999999999" placeholder="Nhập Giá Max" name="maxPrice" />
+
+                        <input id="txtSearch" type="text" placeholder="Search PropertyName" name="text">
+
+                        <button id="btnSearch" type="submit">Submit</button>
                     </form>
                 </div>
 
@@ -56,7 +59,23 @@
                         <a href="#"><img src="~/Images/@item.Avatar" alt="" /></a>
                         <p>Area: @item.Area | Price:@item.Price VND</p>
                         <p>PropertyType: @item.PROPERTY_TYPE.CodeType</p>
-                        <p>Address: @item.DISTRICT_Table.DistrictName @item.STREET.StreetName</p>
+                        @if (item.Street_ID != null)
+                        {
+                            if (item.District_ID != null)
+                            {
+                                <p>Address: @item.DISTRICT_Table.DistrictName @item.STREET.StreetName</p>
+                            }
+                            else
+                            {
+                                <p>Address: @item.STREET.StreetName</p>
+
+                            }
+
+                        }
+                        else
+                        {
+                            <p>Address: @item.DISTRICT_Table.DistrictName -----</p>
+                        }
                         <div class="icon-bar">
                             <img src="~/GiaoDienChinh/Icon/bed-orange.png" /> (@item.BedRoom) |
                             <img src="~/GiaoDienChinh/Icon/cars-orange.png" /> (@item.BathRoom) |
@@ -87,14 +106,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script type="text/javascript">
         $('#Quan').select2();
-        $('#Duong').select2();
-        $('#Quan').on('change', function () {
-            $('#Duong').empty();
-            $.getJSON('/Home/GetStreet?did=' + $('#Quan').val(), function (json) {
-                $('#Duong').select2({ data: json });
-            });
+        //$('#Duong').select2();
+        $('#Type').select2();
+        //$('#Quan').on('change', function () {
+        //    $('#Duong').empty();
+        //    $.getJSON('/Home/GetStreet?did=' + $('#Quan').val(), function (json) {
+        //        $('#Duong').select2({ data: json });
+        //    });
 
-        });
+        //});
     </script>
 }
 <link href="~/GiaoDienChinh/BootStrap/bootstrap.css" rel="stylesheet" />

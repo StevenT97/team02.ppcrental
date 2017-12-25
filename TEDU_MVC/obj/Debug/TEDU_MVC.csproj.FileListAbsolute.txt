@@ -197,3 +197,5 @@ D:\BAckkup\TEDU\TEDU_MVC\bin\TechTalk.SpecFlow.dll
 D:\BAckkup\TEDU\TEDU_MVC\bin\TechTalk.SpecRun.Common.dll
 D:\BAckkup\TEDU\TEDU_MVC\bin\TechTalk.SpecRun.dll
 D:\BAckkup\TEDU\TEDU_MVC\bin\Newtonsoft.Json.xml
+D:\BAckkup\TEDU\TEDU_MVC\bin\LinqKit.EntityFramework.dll
+D:\BAckkup\TEDU\TEDU_MVC\bin\LinqKit.EntityFramework.xml

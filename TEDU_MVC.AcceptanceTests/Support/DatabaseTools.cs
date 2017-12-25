@@ -10,13 +10,14 @@ namespace TEDU_MVC.AcceptanceTests.Support
         [BeforeScenario]
         public void CleanDatabase()
         {
-            //using (var db = new DemoPPCRentalEntities())
-            //{
-            //    db.OrderLines.RemoveRange(db.OrderLines);
-            //    db.Orders.RemoveRange(db.Orders);
-            //    db.Books.RemoveRange(db.Books);
-            //    db.SaveChanges();
-            //}
+            using (var db = new DemoPPCRentalEntities())
+            {
+                //db.OrderLines.RemoveRange(db.OrderLines);
+                //db.Orders.RemoveRange(db.Orders);
+                db.PROPERTies.RemoveRange(db.PROPERTies);
+                db.USERs.RemoveRange(db.USERs);
+                db.SaveChanges();
+            }
         }
     }
 }

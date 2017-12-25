@@ -10,6 +10,7 @@ namespace Models
     {
        
         public static string SALE_GROUP = "SALE";
+        public static string IT_GROUP = "IT";
         public static string AGENCY_GROUP = "AGENCY";
         public static string MEMBER_GROUP = "MEMBER";
     }

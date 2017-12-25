@@ -1,7 +1,10 @@
 ﻿@model Models.FrameWork.PROPERTy
-
+@using Models.FrameWork
 @{
     ViewBag.Title = "Edit";
+    var db = new DemoPPCRentalEntities();
+    var Quans = new SelectList(db.DISTRICT_Table.Where(x => x.ID > 31 && x.ID < 45), "ID", "DistrictName");
+    var Duongs = new SelectList(db.STREETs.Take(0), "ID", "StreetName");
 }
 @section header{
    Edit
@@ -41,15 +44,14 @@
             </div>
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             <lable> @Html.LabelFor(model => model.Images, htmlAttributes: new { @class = "control-label col-md-2" }) </lable>
             <div class="col-md-10">
-               @*<img src="/~Images/@Model.Images"/>*@
+              
                <input type="file" name="ImageFile"  />
-                @*@Html.EditorFor(model => model.Images, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Images, "", new { @class = "text-danger" })*@
+               
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             <label class = "control-label col-md-2">PropertyType</label>
@@ -68,30 +70,30 @@
             </div>
         </div>
 
+       
         <div class="form-group">
-            <lable> @Html.LabelFor(model => model.Street_ID, "Street_ID", htmlAttributes: new { @class = "control-label col-md-2" }) </lable>
+            <lable> @Html.LabelFor(model => model.Ward_ID, "Ward_ID", htmlAttributes: new { @class = "control-label col-md-2" }) </lable>
             <div class="col-md-10">
-                @*@Html.DropDownList("Street", null, htmlAttributes: new { @class = "form-control" })*@
-                @Html.DropDownList("Street_ID", new SelectList(ViewBag.street, "ID", "StreetName"), htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Street_ID, "", new { @class = "text-danger" })
+               @*Html.DropDownList("Ward", null, htmlAttributes: new { @class = "form-control" })*@
+               @Html.DropDownList("Ward_ID", new SelectList(ViewBag.ward, "ID", "WardName"), htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Ward_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.District_ID, "District_ID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*Html.DropDownList("District_ID", Quans, "Chọn quận...", new { @id = "District_ID" })*@
+                @Html.DropDownList("District_ID", new SelectList(ViewBag.district, "ID", "DistrictName"), htmlAttributes: new { @class = "form-control" })
+                @*@Html.ValidationMessageFor(model => model.District_ID, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
-        @*<div class="form-group">
-            <lable> @Html.LabelFor(model => model.Ward_ID, "Ward_ID", htmlAttributes: new { @class = "control-label col-md-2" }) </lable>
-            <div class="col-md-10">
-               Html.DropDownList("Ward", null, htmlAttributes: new { @class = "form-control" })
-               Html.DropDownList("Ward_ID", new SelectList(ViewBag.ward, "ID", "WardName"), htmlAttributes: new { @class = "form-control" })
-                Html.ValidationMessageFor(model => model.Ward_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
         <div class="form-group">
-            <lable> @Html.LabelFor(model => model.District_ID, "District_ID", htmlAttributes: new { @class = "control-label col-md-2" }) </lable>
+            @Html.LabelFor(model => model.Street_ID, "Street_ID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@Html.DropDownList("District", null, htmlAttributes: new { @class = "form-control" })*@
-                @Html.DropDownList("District_ID", new SelectList(ViewBag.district, "ID", "DistrictName"), htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.District_ID, "", new { @class = "text-danger" })
+                @*@Html.DropDownList("Street_ID", Duongs, "Chọn đường...", new { @id = "Street_ID" })*@
+               @Html.DropDownList("Street_ID", new SelectList(ViewBag.street, "ID", "StreetName"), htmlAttributes: new { @class = "form-control" })
+                @*@Html.ValidationMessageFor(model => model.Street_ID, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
@@ -140,6 +142,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.PackingPlace, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.PackingPlace, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">FEATURE</label>
+            <div class="col-md-10">
+                @Html.DropDownList("listfeature", new SelectList(ViewBag.feature, "ID", "FeatureName"), new { @class = "form-control", @multiple = "true" })
+                @Html.ValidationMessageFor(model => model.PropertyType_ID, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -210,5 +220,30 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "ListAgency", "Login")
 </div>
+@section scripts {
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script>
+    $('#District_ID').select2();
+    $('#Street_ID').select2();
+    $('#Ward_ID').select2();
+   
+    $('#District_ID').on('change', function () {
+        $('#Street_ID').empty();
+        $.getJSON('/Login/GetStreet?did=' + $('#District_ID').val(), function (json) {
+            $('#Street_ID').select2({ data: json });
+        });
+
+    });
+
+    $('#District_ID').on('change', function () {
+        $('#Ward_ID').empty();
+        $.getJSON('/Login/GetWard?did=' + $('#District_ID').val(), function (json) {
+            $('#Ward_ID').select2({ data: json });
+        });
+
+    });
+    </script>
+}

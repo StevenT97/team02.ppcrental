@@ -1,0 +1,32 @@
+﻿2017-12-12T23:50:07.3342190+07:00;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2017-12-12T23:50:07.5042287+07:00;VSTestExecutionThread;Info;SpecRun Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2017-12-12T23:50:07.5042287+07:00;VSTestExecutionThread;Info;SpecRun: running tests in D:\BAckkup\TEDU\Models\bin\Debug\Models.dll
+2017-12-12T23:50:07.5052288+07:00;VSTestExecutionThread;Info;Profile: Default
+2017-12-12T23:50:19.6619241+07:00;VSTestExecutionThread;Info;Discovering target: Default
+2017-12-12T23:50:19.6629242+07:00;VSTestExecutionThread;Info;Discovering tests from assembly: D:\BAckkup\TEDU\Models\bin\Debug\Models.dll
+2017-12-12T23:50:22.3980806+07:00;VSTestExecutionThread;Info;Log file: file:///D:\BAckkup\TEDU\TestResults\Models_Default_2017-12-12T235007.log
+2017-12-12T23:50:22.4120814+07:00;VSTestExecutionThread;Info;SpecRun Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2017-12-12T23:50:22.4130815+07:00;VSTestExecutionThread;Info;SpecRun: running tests in D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests.Common\bin\Debug\TEDU_MVC.AcceptanceTests.Common.dll
+2017-12-12T23:50:22.4140815+07:00;VSTestExecutionThread;Info;Profile: Default
+2017-12-12T23:50:35.4288259+07:00;VSTestExecutionThread;Info;Discovering target: Default
+2017-12-12T23:50:37.0459184+07:00;VSTestExecutionThread;Info;Log file: file:///D:\BAckkup\TEDU\TestResults\TEDU_MVC_Default_2017-12-12T235022.log
+2017-12-12T23:50:37.0559190+07:00;VSTestExecutionThread;Info;SpecRun Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2017-12-12T23:50:37.0559190+07:00;VSTestExecutionThread;Info;SpecRun: running tests in D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\TEDU_MVC.AcceptanceTests.dll
+2017-12-12T23:50:37.0569190+07:00;VSTestExecutionThread;Info;Profile: Default
+2017-12-12T23:50:47.0594911+07:00;Thread#6;Info;Discovering target: Default
+Test Suite Dump
+#0: TEDU_MVC/Default - 
+End: Test Suite Dump
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: at the end of normal test queue
+Thread#0:Scheduler: enumerator for thread is at end
+Thread#0:Scheduler: No more tests for thread
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: at the end of normal test queue
+Thread#-1:Scheduler: enumerator for thread is at end
+Total: 0
+Succeeded: 0
+Ignored: 0
+Pending: 0
+Skipped: 0
+Failed: 0

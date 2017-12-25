@@ -38,18 +38,11 @@ namespace TEDU_MVC.AcceptanceTests.Support
         {
             private readonly Dictionary<string, object> _state = new Dictionary<string, object>();
 
-            //public override object this[string name]
-            //{
-            //    //get {
-            //    //    if (!_state.ContainsKey(name))
-            //    //    {
-            //    //        _state[name] = null;    }
-            //    //    else {
-            //    //        _state[name];
-            //    //    }
-            //    //}
-            //    //set { _state[name] = value; }
-            //}
+            public override object this[string name]
+            {
+                get { return !_state.ContainsKey(name) ? null : _state[name]; }
+                set { _state[name] = value; }
+            }
         }
     }
 }

@@ -14,7 +14,6 @@ D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\WebDriver.dll
 D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\WebDriver.Support.dll
 D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\System.Web.Mvc.dll
 D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\Models.dll
-D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\EntityFramework.dll
 D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\System.Web.Razor.dll
 D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\System.Web.WebPages.Razor.dll
 D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\System.Web.WebPages.dll
@@ -61,3 +60,8 @@ D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\UiaComWrapper.dll
 D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\Interop.UIAutomationClient.dll
 D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\Microsoft.VisualStudio.TestTools.UITest.Common.xml
 D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\Microsoft.VisualStudio.TestTools.UITest.Extension.xml
+D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\EntityFramework.dll
+D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\EntityFramework.SqlServer.dll
+D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\System.Data.Common.dll
+D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\System.Data.SqlClient.dll
+D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests\bin\Debug\EntityFramework.SqlServer.xml

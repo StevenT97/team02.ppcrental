@@ -1,0 +1,27 @@
+﻿@model Models.FrameWork.About_Us
+
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Layout/_LayoutPage1.cshtml";
+}
+
+<h2>About</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+      
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+       
+        <dd>
+            <img src="~/Images/@Model.Images" width="100px">
+        </dd>
+
+       
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

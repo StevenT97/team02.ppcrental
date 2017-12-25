@@ -29,6 +29,9 @@
                         window.alert('Tạo Tài Khoản Thành Công');
                         contact.resetForm();
                     }
+                    if (res.status === false) {
+                        window.alert('Tạo Tài Khoản Không Thành Công');
+                    }
                 }
             });
         });

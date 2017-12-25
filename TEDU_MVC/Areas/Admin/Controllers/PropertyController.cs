@@ -15,7 +15,7 @@ namespace TEDU_MVC.Areas.Admin.Controllers
 
         // GET: Admin/Property
         List<SelectListItem> propertytype;
-        DemoPPCRentalEntities model = new DemoPPCRentalEntities();
+        DemoPPCRentalEntities models = new DemoPPCRentalEntities();
         [HasCredential(RoleID = "VIEW_PROPERTY")]
         public ActionResult Index(int page = 1, int pageSize = 5)
         {
@@ -27,11 +27,11 @@ namespace TEDU_MVC.Areas.Admin.Controllers
         }
         public ActionResult ViewListProperty(int id)
         {
-            var pro = model.PROPERTies.Where(x => x.UserID == id).ToList();
+            var pro = models.PROPERTies.Where(x => x.UserID == id).ToList();
             return View(pro);
         }
 
-       
+
         [HttpPost]
 
         public ActionResult Upload(List<HttpPostedFileBase> files)
@@ -62,9 +62,12 @@ namespace TEDU_MVC.Areas.Admin.Controllers
         // GET: Admin/Property/Details/5
         public ActionResult Details(int id)
         {
-            var pro = model.PROPERTies.Find(id);
+            var pro = models.PROPERTies.Find(id);
             ViewBag.Images = Directory.EnumerateFiles(Server.MapPath("~/MultiImages"))
                              .Select(fn => "~/MultiImages/" + Path.GetFileName(fn));
+            ViewBag.features = models.PROPERTY_FEATURE.Where(x => x.Property_ID == id).ToList();
+            ViewBag.Countt = models.PROPERTY_FEATURE.Where(x => x.Property_ID == id).Count();
+            ViewBag.fea = models.FEATUREs.ToList();
             return View(pro);
         }
 
@@ -81,7 +84,7 @@ namespace TEDU_MVC.Areas.Admin.Controllers
         public ActionResult Create(PROPERTy property, List<HttpPostedFileBase> files)
         {
             ListAll();
-          
+
             try
             {
 
@@ -96,14 +99,14 @@ namespace TEDU_MVC.Areas.Admin.Controllers
 
 
 
-                // Images
+                //// Images
 
-                string filename = Path.GetFileNameWithoutExtension(property.ImageFile.FileName);
-                string extension = Path.GetExtension(property.ImageFile.FileName);
-                filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
-                property.Images = filename;
-                filename = Path.Combine(Server.MapPath("~/Images"), filename);
-                property.ImageFile.SaveAs(filename);
+                //string filename = Path.GetFileNameWithoutExtension(property.ImageFile.FileName);
+                //string extension = Path.GetExtension(property.ImageFile.FileName);
+                //filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+                //property.Images = filename;
+                //filename = Path.Combine(Server.MapPath("~/Images"), filename);
+                //property.ImageFile.SaveAs(filename);
 
 
 
@@ -137,6 +140,10 @@ namespace TEDU_MVC.Areas.Admin.Controllers
 
                                 }
                             }
+                        }
+                        else
+                        {
+                            break;
                         }
                     }
                     // End SaveMultiImage -------------------------
@@ -196,21 +203,35 @@ namespace TEDU_MVC.Areas.Admin.Controllers
         public ActionResult Edit(PROPERTy property, List<HttpPostedFileBase> files)
         {
             ListAll();
+
             // Images
+
             try
             {
-                ViewBag.Images = Directory.EnumerateFiles(Server.MapPath("~/MultiImages"))
-                   .Select(fn => "~/MultiImages/" + Path.GetFileName(fn));
-                foreach (var image in (IEnumerable<string>)ViewBag.Images)
+                if (files[0]!= null)
                 {
-
-                    if (image.Contains(property.ID.ToString()))
+                    ViewBag.Images = Directory.EnumerateFiles(Server.MapPath("~/MultiImages"))
+                      .Select(fn => "~/MultiImages/" + Path.GetFileName(fn));
+                    foreach (var image in (IEnumerable<string>)ViewBag.Images)
                     {
-                        System.IO.File.Delete(image);
+
+                        if (image.Contains(property.ID.ToString()))
+                        {
+                         
+                            System.IO.File.Delete(Server.MapPath(image));
+
+                        }
+
 
                     }
-
                 }
+            } catch (Exception exx)
+            {
+
+            }
+            try
+            {
+
                 // Xu ly MultiImage
                 var path = "";
                 foreach (var item in files)
@@ -224,7 +245,7 @@ namespace TEDU_MVC.Areas.Admin.Controllers
                                 || Path.GetExtension(item.FileName).ToLower() == ".gif"
                                 || Path.GetExtension(item.FileName).ToLower() == ".jpeg")
                             {
-                                var path0 =property.ID + item.FileName;
+                                var path0 = property.ID + item.FileName;
                                 path = Path.Combine(Server.MapPath("~/MultiImages"), path0);
 
                                 item.SaveAs(path);
@@ -248,12 +269,12 @@ namespace TEDU_MVC.Areas.Admin.Controllers
 
                 // Xu ly Images
 
-                string filename = Path.GetFileNameWithoutExtension(property.ImageFile.FileName);
-                string extension = Path.GetExtension(property.ImageFile.FileName);
-                filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
-                property.Images = filename;
-                filename = Path.Combine(Server.MapPath("~/Images"), filename);
-                property.ImageFile.SaveAs(filename);
+                //string filename = Path.GetFileNameWithoutExtension(property.ImageFile.FileName);
+                //string extension = Path.GetExtension(property.ImageFile.FileName);
+                //filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+                //property.Images = filename;
+                //filename = Path.Combine(Server.MapPath("~/Images"), filename);
+                //property.ImageFile.SaveAs(filename);
 
                 // End Xu ly Images
 
@@ -264,6 +285,19 @@ namespace TEDU_MVC.Areas.Admin.Controllers
                 {
                     var model = new AccountModel();
                     var res = model.Update(property);
+                    if (property.listfeature != null)
+                    {
+                        models.PROPERTY_FEATURE.RemoveRange(models.PROPERTY_FEATURE.Where(x => x.Property_ID == property.ID));
+                        PROPERTY_FEATURE pf = new PROPERTY_FEATURE();
+
+                        foreach (string x in property.listfeature)
+                        {
+                            pf.Property_ID = property.ID;
+                            pf.Feature_ID = int.Parse(x);
+                            models.PROPERTY_FEATURE.Add(pf);
+                            models.SaveChanges();
+                        }
+                    }
                     if (res)
                     {
                         return RedirectToAction("Index", "Property");
@@ -282,6 +316,21 @@ namespace TEDU_MVC.Areas.Admin.Controllers
 
                     var model = new AccountModel();
                     var res = model.Update(property);
+
+                    if (property.listfeature != null)
+                    {
+                        models.PROPERTY_FEATURE.RemoveRange(models.PROPERTY_FEATURE.Where(x => x.Property_ID == property.ID));
+                        PROPERTY_FEATURE pf = new PROPERTY_FEATURE();
+
+                        foreach (string x in property.listfeature)
+                        {
+                            pf.Property_ID = property.ID;
+                            pf.Feature_ID = int.Parse(x);
+                            models.PROPERTY_FEATURE.Add(pf);
+                            models.SaveChanges();
+                        }
+                    }
+
                     if (res)
                     {
                         return RedirectToAction("Index", "Property");
@@ -320,12 +369,14 @@ namespace TEDU_MVC.Areas.Admin.Controllers
 
         public void ListAll()
         {
-            ViewBag.property_type = model.PROPERTY_TYPE.ToList();
-            ViewBag.street = model.STREETs.OrderBy(x => x.StreetName).ToList();
-            ViewBag.ward = model.WARDs.OrderBy(x => x.WardName).ToList();
-            ViewBag.district = model.DISTRICT_Table.OrderBy(x => x.DistrictName).ToList();
-            ViewBag.user = model.USERs.OrderBy(x => x.FullName).ToList();
-            ViewBag.status = model.PROJECT_STATUS.OrderBy(x => x.Status_Name).ToList();
+            ViewBag.feature = models.FEATUREs.ToList();
+            ViewBag.property_type = models.PROPERTY_TYPE.ToList();
+            ViewBag.street = models.STREETs.OrderBy(x => x.StreetName).ToList();
+            ViewBag.ward = models.WARDs.OrderBy(x => x.WardName).ToList();
+            //ViewBag.district = models.DISTRICT_Table.OrderBy(x => x.DistrictName).ToList();
+            ViewBag.district = models.DISTRICT_Table.Where(x => x.ID > 31 && x.ID < 45).OrderBy(x => x.DistrictName).ToList();
+            ViewBag.user = models.USERs.OrderBy(x => x.FullName).ToList();
+            ViewBag.status = models.PROJECT_STATUS.OrderBy(x => x.Status_Name).ToList();
             //ViewBag.sale = model.Sla.ToList();
 
         }

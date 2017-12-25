@@ -39,3 +39,5 @@ D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests.Common\bin\Debug\TechTalk.SpecFlow.dll
 D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests.Common\bin\Debug\TechTalk.SpecRun.Common.dll
 D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests.Common\bin\Debug\TechTalk.SpecRun.dll
 D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests.Common\bin\Debug\Newtonsoft.Json.xml
+D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests.Common\bin\Debug\EntityFramework.SqlServer.dll
+D:\BAckkup\TEDU\TEDU_MVC.AcceptanceTests.Common\bin\Debug\EntityFramework.SqlServer.xml

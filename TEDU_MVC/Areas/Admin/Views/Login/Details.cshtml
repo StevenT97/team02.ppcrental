@@ -8,8 +8,8 @@
     Xem Chi Tiet
 }
 <div>
-    <h4>PROPERTy</h4>
-    <hr />
+    @*<h4>PROPERTy</h4>
+    <hr />*@
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.PropertyName)
@@ -27,13 +27,13 @@
             <img src="~/Avatar/@Model.Avatar" width="100px">
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.Images)
         </dt>
 
         <dd>
             <img src="~/Images/@Model.Images" width="100px">
-        </dd>
+        </dd>*@
         @* Start Xuat mutil Image*@
 
         <dt>
@@ -111,6 +111,31 @@
             @Html.DisplayFor(model => model.PackingPlace)
         </dd>
 
+        @*
+            
+        *@
+
+        <dt>
+            <label>FEATURE</label>
+        </dt>
+
+        <dd>
+            @{
+                
+                foreach (var feature in ViewBag.features)
+                {
+                    foreach (var fes in ViewBag.fea)
+                    {
+                        if (feature.Feature_ID == fes.ID)
+                        {
+                            <p>@fes.FeatureName</p>
+                    }
+                }
+
+            }
+            }
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Created_at)
         </dt>
@@ -183,14 +208,6 @@
             @Html.DisplayFor(model => model.USER.Email)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.USER1.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.USER1.Email)
-        </dd>
-
         @*<dt>
             @Html.DisplayNameFor(model => model.WARD.WardName)
         </dt>
@@ -202,6 +219,7 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "ListAgency")
+    @Html.ActionLink("Edit", "Edit", "Property", new { id = Model.ID },"") |
+    @*<a href="~/Admin/Login/Details/@Model.ID">Edit</a> |*@
+    @Html.ActionLink("Back to List", "ListAgency", "Login")
 </p>
