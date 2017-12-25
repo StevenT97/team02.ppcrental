@@ -9,18 +9,36 @@ using TEDU_MVC.Code;
 
 namespace TEDU_MVC.Areas.Admin.Controllers
 {
-    [HasCredential(RoleID = "VIEW_USER")]
     public class UserController : BaseController
     {
         // GET: Admin/User
         DemoPPCRentalEntities db = new DemoPPCRentalEntities();
+
+        [HasCredential(RoleID = "VIEW_USER_IT")]
         public ActionResult Index(int page = 1, int pageSize = 5)
+
+        {
+            var propertymodel = new AccountModel();
+            var model = propertymodel.ListAllPagingUser(page, pageSize);
+            return View(model);
+        }
+        [HasCredential(RoleID = "VIEW_USER")]
+        public ActionResult IndexSale(int page = 1, int pageSize = 5)
         {
 
             var propertymodel = new AccountModel();
             var model = propertymodel.ListAllPagingUser(page, pageSize);
             return View(model);
         }
+
+        public ActionResult ViewListProperty(int id)
+        {
+            var pro = db.PROPERTies.Where(x => x.UserID == id).ToList();
+            return View(pro);
+        }
+
+
+
         [HasCredential(RoleID = "ADD_USER")]
         public ActionResult Create()
         {
@@ -39,7 +57,8 @@ namespace TEDU_MVC.Areas.Admin.Controllers
                 long id = dao.Insert(user);
                 if (id > 0)
                 {
-                    return RedirectToAction("Index", "User");
+                    ViewBag.Success = "Đăng ký thành công";
+                   
                 }
                 else
                 {

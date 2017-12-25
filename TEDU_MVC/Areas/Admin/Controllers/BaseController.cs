@@ -19,7 +19,7 @@ namespace TEDU_MVC.Areas.Admin.Controllers
             if (sess == null)
             {
                 filterContext.Result = new RedirectToRouteResult(
-                    new RouteValueDictionary(new { controller = "Login", action="Index", Area="Admin"})
+                    new RouteValueDictionary(new { controller = "LoginAdmin", action="Index", Area="Admin"})
                     );
             }
             base.OnActionExecuting(filterContext);

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TestProfile xmlns="http://www.specflow.org/schemas/plus/TestProfile/1.5">
-  <Settings projectName="TEDU_MVC.AcceptanceTests.Common" projectId="{fce86028-867b-448b-91b0-3c133b58224e}" />
+  <Settings projectName="TEDU_MVC" projectId="{c7f2ee10-33e6-4704-b198-6578aa577d2b}" />
   <Execution stopAfterFailures="3" testThreadCount="1" testSchedulingMode="Sequential" />
   <!-- For collecting by a SpecRun server update and enable the following element. For using the 
       collected statistics, set testSchedulingMode="Adaptive" attribute on the <Execution> element.
     <Server serverUrl="http://specrunserver:6365" publishResults="true" />
   -->
   <TestAssemblyPaths>
-    <TestAssemblyPath>TEDU_MVC.AcceptanceTests.Common.dll</TestAssemblyPath>
+    <TestAssemblyPath>TEDU_MVC.dll</TestAssemblyPath>
   </TestAssemblyPaths>
   <DeploymentTransformation>
     <Steps>

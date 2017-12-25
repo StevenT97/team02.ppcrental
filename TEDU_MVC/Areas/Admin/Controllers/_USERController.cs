@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TEDU_MVC.Areas.Admin.Models;
 using TEDU_MVC.Code;
 
 namespace TEDU_MVC.Areas.Admin.Controllers
@@ -64,25 +65,63 @@ namespace TEDU_MVC.Areas.Admin.Controllers
         }
 
         // GET: Admin/_USER/Edit/5
+       
         public ActionResult Edit(int id)
         {
-            return View();
+            var user = new AccountModel().EditUser(id);
+            return View(user);
         }
 
         // POST: Admin/_USER/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
+      
+        [HttpPost]
+        [ClearModelErrors]
+        public ActionResult Edit(int id, USER users)
+        {
+            if (users.FullName == null)
             {
-                return View();
+                ModelState.AddModelError("FullName", "FullName không được trống");
             }
+            else if (users.FullName.Length > 50)
+            {
+                ModelState.AddModelError("FullName", "Không được quá 50 ký tự");
+            }
+            if (users.Phone == null)
+            {
+                ModelState.AddModelError("Phone", "Phone không được trống");
+            }
+            else if (users.Phone.Length > 15)
+            {
+                ModelState.AddModelError("Phone", "Không được quá 15 ký tự");
+            }
+            if (users.Address == null)
+            {
+                ModelState.AddModelError("Address", "Address không được trống");
+            }
+            else if (users.Address.Length > 50)
+            {
+                ModelState.AddModelError("Address", "Không được quá 100 ký tự");
+            }
+
+            if (ModelState.IsValid)
+                {
+
+                    var model = new AccountModel();
+                    var res = model.UpdateUser(users);
+                    if (res)
+                    {
+                        return RedirectToAction("EDIT","_USER");
+                    }
+                    
+                    else
+                    {
+                        ModelState.AddModelError("", "Update không thành công");
+                    }
+                        }
+           
+            return View();
+
         }
 
         // GET: Admin/_USER/Delete/5

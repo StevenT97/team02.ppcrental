@@ -11,9 +11,9 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
-            <div class="panel-heading">
+            @*<div class="panel-heading">
                 Danh Sách Dự Án
-            </div>
+            </div>*@
 
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -24,7 +24,7 @@
                             <th></th>
                             <th>PropertyName</th>
                             <th>Avatar</th>
-                            <th>Images</th>
+                            @*<th>Images</th>*@
                             <th>PropertyType</th>
                             @*<th>Content</th>*@
                             <th>Street</th>
@@ -56,7 +56,9 @@
                                 <td>
 
                                     @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                                 
+                                    @Html.ActionLink("Details", "Details","Login", new { id = item.ID }, new { id = @"btnDetails" })
+                              
                                     @*@Html.ActionLink("Delete", "Delete", new { id = item.ID })*@
                                     @Ajax.ActionLink("Delete", "Delete", new { id = item.ID }, new AjaxOptions
                                {
@@ -65,15 +67,30 @@
                                    HttpMethod = "Delete",
                                })
                                 </td>
-                                <td>@item.PropertyName</td>
+                                <td id="IDPropertyName">@item.PropertyName</td>
 
                                 <td><img src="/Avatar/@item.Avatar" width="100px"></td>
-                                <td><img src="/Images/@item.Images" width="100px"></td>
+                                @*<td><img src="/Images/@item.Images" width="100px"></td>*@
 
                                 <td>@item.PROPERTY_TYPE.CodeType</td>
-                                <td>@item.STREET.StreetName</td>
+                                @if (item.Street_ID != null)
+                                {
+                                    <td>@item.STREET.StreetName</td>
+                                }
+                                else
+                                {
+                                    <td>-----</td>
+                                }
                                 @*<td>@item.WARD.WardName</td>*@
-                                <td>@item.DISTRICT_Table.DistrictName</td>
+                                @if (item.District_ID != null)
+                                {
+                                    <td>@item.DISTRICT_Table.DistrictName</td>
+                                }
+                                else
+                                {
+                                    <td>-----</td>
+                                }
+                               
                                 <td>@item.Price</td>
                                 @*<td>@item.UnitPrice</td>*@
                                 <td>@item.Area</td>

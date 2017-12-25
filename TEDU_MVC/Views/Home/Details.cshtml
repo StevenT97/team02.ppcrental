@@ -4,199 +4,139 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Layout/_LayoutPage1.cshtml";
 }
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="~/scripts/js/controller/Contact.js"></script>
 <div class="content-bg">
     <div class="wrap">
         <div class="content">
             <div class="details">
-                <h3>@Html.DisplayFor(model => model.PropertyName)</h3>
-                <div class="det-pic">
-                    <a href="details.html"><img src="~/Images/@Model.Avatar"></a>
-                </div>
-                <div class="det-para">
-                    <dl class="dl-horizontal">
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Content)
-                        </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Content)
-                        </dd>
+                <h3>  @Html.DisplayFor(model => model.PropertyName)</h3>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Price)
-                        </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Price)
-                        </dd>
+                <a>
+                    <img src="~/Avatar/@Model.Avatar" alt="" width="850px" height="400px">
+                </a>
+                <br />
+           
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.UnitPrice)
-                        </dt>
+                    @{
+                        foreach (var image in (IEnumerable<string>)ViewBag.Images)
+                        {
 
-                        <dd>
-                            @Html.DisplayFor(model => model.UnitPrice)
-                        </dd>
+                            if (image.Contains(Model.ID.ToString()))
+                            {
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Area)
-                        </dt>
+                                <img src="@Url.Content(image)" width="209.5px" />
+                            }
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Area)
-                        </dd>
+                        }
+                    }
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.BedRoom)
-                        </dt>
+         
 
-                        <dd>
-                            @Html.DisplayFor(model => model.BedRoom)
-                        </dd>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.BathRoom)
-                        </dt>
+                <p>PropertyType: @Html.DisplayFor(model => model.PROPERTY_TYPE.CodeType)</p>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.BathRoom)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.PackingPlace)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.PackingPlace)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Created_at)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.Created_at)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Create_post)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.Create_post)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Note)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.Note)
-                        </dd>
+                <p>Description: @Html.DisplayFor(model => model.Content)</p>
 
 
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.DISTRICT_Table.DistrictName)
-                        </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.DISTRICT_Table.DistrictName)
-                        </dd>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.PROJECT_STATUS.Status_Name)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.PROJECT_STATUS.Status_Name)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.PROPERTY_TYPE.CodeType)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.PROPERTY_TYPE.CodeType)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.STREET.StreetName)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.STREET.StreetName)
-                        </dd>
+                <p>@Html.DisplayFor(model => model.Price) @Html.DisplayFor(model => model.UnitPrice)</p>
 
 
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.WARD.WardName)
-                        </dt>
+                <p>Diện tích: @Html.DisplayFor(model => model.Area)</p>
+                <p>BedRoom: @Html.DisplayFor(model => model.BedRoom)</p>
+                <p>BathRoom: @Html.DisplayFor(model => model.BathRoom)</p>
+                <p>PackingPlace: @Html.DisplayFor(model => model.PackingPlace)</p>
+                <p>Feature : </p>
+                @{
 
-                        <dd>
-                            @Html.DisplayFor(model => model.WARD.WardName)
-                        </dd>
+                    foreach (var feature in ViewBag.features)
+                    {
+                        foreach (var fes in ViewBag.fea)
+                        {
+                            if (feature.Feature_ID == fes.ID)
+                            {
+                                <p>@fes.FeatureName</p>
+                            }
+                        }
 
-                    </dl>
+                    }
+                }
+                <p>District: @Html.DisplayFor(model => model.DISTRICT_Table.DistrictName)</p>
+                <p>Ward: @Html.DisplayFor(model => model.WARD.WardName) </p>
+                <p>Street: @Html.DisplayFor(model => model.STREET.StreetName)</p>
+                <p>Agency: @Html.DisplayFor(model => model.USER.Email)</p>
 
-                </div>
             </div>
-                <div class="section group">
-                    <div class="col span_1_of_3">
-                        <div class="contact_info">
-                            <h3>Find Us Here</h3>
-                            <div class="map" id="mapCanvas">
-                               
-                            </div>
-                        </div>
-                        <div class="company_address">
-                            <h3>Company Information :</h3>
-                            <p>500 Lorem Ipsum Dolor Sit,</p>
-                            <p>22-56-2-9 Sit Amet, Lorem,</p>
-                            <p>USA</p>
-                            <p>Phone:(00) 222 666 444</p>
-                            <p>Fax: (000) 000 00 00 0</p>
-                            <p>Email: <span><a href="mailto:info@gmail.com">info@mycompany.com</a></span></p>
-                            <p>Follow on: <span>Facebook</span>, <span>Twitter</span></p>
-                        </div>
-                    </div>
-                    <div class="col span_2_of_3">
-                        <div class="contact-form">
-                            <h3>Contact Us</h3>
-                            <form action="">
-                                <div>
-                                    <span><label>NAME</label></span>
-                                    <span><input type="text" id="txtName"></span>
-                                </div>
-                                <div>
-                                    <span><label>MOBILE</label></span>
-                                    <span><input type="text" id="txtMobile"></span>
-                                </div>
-                                <div>
-                                    <span><label>E-MAIL</label></span>
-                                    <span><input type="text" id="txtEmail"></span>
-                                </div>
-                              
-                                <div>
-                                    <span><label>SUBJECT</label></span>
-                                    <span><textarea id="txtContent"> </textarea></span>
-                                </div>
-                                <div>
-                                    <span><input type="submit" id="btnSend" class="btn btn-success"></span>
-                                </div>
-                            </form>
-                        </div>
+        </div>
+        <div class="section group">
+            <div class="col span_1_of_3">
+                <div class="contact_info">
+                    <h3>Find Us Here</h3>
+                    <div class="map" id="mapCanvas">
+
                     </div>
                 </div>
+                <div class="company_address">
+                    <h3>Company Information :</h3>
+                    <p>500 Lorem Ipsum Dolor Sit,</p>
+                    <p>22-56-2-9 Sit Amet, Lorem,</p>
+                    <p>USA</p>
+                    <p>Phone:(00) 222 666 444</p>
+                    <p>Fax: (000) 000 00 00 0</p>
+                    <p>Email: <span><a href="mailto:info@gmail.com">info@mycompany.com</a></span></p>
+                    <p>Follow on: <span>Facebook</span>, <span>Twitter</span></p>
+                </div>
             </div>
+            <div class="col span_2_of_3">
+                <div class="contact-form">
+                    <h3>Contact Us</h3>
+                    <form action="">
+                        <div>
+                            <span><label>NAME</label></span>
+                            <span><input type="text" id="txtName"></span>
+                        </div>
+                        <div>
+                            <span><label>MOBILE</label></span>
+                            <span><input type="text" id="txtMobile"></span>
+                        </div>
+                        <div>
+                            <span><label>E-MAIL</label></span>
+                            <span><input type="text" id="txtEmail"></span>
+                        </div>
+
+                        <div>
+                            <span><label>SUBJECT</label></span>
+                            <span><textarea id="txtContent"> </textarea></span>
+                        </div>
+                        <div>
+                            <span><input type="submit" id="btnSend" class="btn btn-success"></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+</div>
 @section scripts {
-<script src="~/scripts/js/controller/Contact.js"></script>
-    }
+    <script src="~/scripts/js/controller/Contact.js"></script>
+}
+
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>
+<script type="text/javascript">
+
+$(window).on('load', function() {
+    $('#slider').nivoSlider();
+});
+</script>

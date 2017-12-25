@@ -25,10 +25,10 @@ namespace TEDU_MVC
             routes.MapRoute(
         name: "Login",
         url: "dang-nhap",
-        defaults: new { controller = "Login", action = "Login", id = UrlParameter.Optional },
+        defaults: new { controller = "LoginAdmin", action = "Login", id = UrlParameter.Optional },
         namespaces: new[] { "TEDU_MVC.Controllers" }
     );
-
+           
             routes.MapRoute(
        name: "Contact",
        url: "lien-he",

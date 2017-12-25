@@ -27,7 +27,7 @@ namespace TEDU_MVC.Code
             }
             //string privilegeLevels = string.Join(";", this.GetCredentialByLoggedInUser(session.UserName));
             List<string> privilegeLevels = this.GetCredentialByLoggedInUser(session.UserName);
-            if (privilegeLevels.Contains(this.RoleID) || session.GroupID==CommonConstants.SALE_GROUP)
+            if (privilegeLevels.Contains(this.RoleID))
             {
                 return true;
             }

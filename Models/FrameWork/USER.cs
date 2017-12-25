@@ -11,7 +11,8 @@ namespace Models.FrameWork
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class USER
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,10 +24,26 @@ namespace Models.FrameWork
         }
     
         public int ID { get; set; }
+
+        [Required(ErrorMessage = "Email can't be empty")]
+        [StringLength(50)]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
+
+        [Required(ErrorMessage = "Password can't be empty")]
+        [StringLength(50)]
         public string Password { get; set; }
+
+        [Required(ErrorMessage = "FullName can't be empty")]
+        [StringLength(50)]
         public string FullName { get; set; }
+
+        [Required(ErrorMessage = "Phone can't be empty")]
+        [StringLength(15)]
         public string Phone { get; set; }
+        [Required(ErrorMessage = "Address can't be empty")]
+
+        [StringLength(100)]
         public string Address { get; set; }
         public string Role { get; set; }
         public Nullable<bool> Status { get; set; }

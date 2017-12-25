@@ -1,0 +1,190 @@
+﻿@model Models.FrameWork.PROPERTy
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Layout/_LayoutPage1.cshtml";
+}
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/GiaoDienChinh/ForDetails/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Main stylesheet  -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="~/GiaoDienChinh/ForDetails/css/style.css" rel="stylesheet" />
+    <!-- Responsive stylesheet  -->
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <link href="~/GiaoDienChinh/ForDetails/css/responsive.css" rel="stylesheet" />
+    <!-- Favicon -->
+    <link href="images/favicon.png" rel="shortcut icon" type="image/png">
+    <link href="images/apple-icon.png" rel="icon" type="image/png">
+
+    <section class="at-property-sec at-property-right-sidebar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="at-property-details-col">
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                @{
+                                    foreach (var image in (IEnumerable<string>)ViewBag.Images)
+                                    {
+
+                                        <div class="item">
+                                            if (image.Contains(Model.ID.ToString()))
+                                            {
+
+                                            <img src="@Url.Content(image)" alt=""/>
+                                            }
+                                        </div>
+                                        
+
+                                    }
+                                }
+                                    @*<!-- End Item -->
+                                    
+                                    <!-- End Item -->
+                                    <div class="item">
+                                        <img src="images/slider/slider-3.jpg" alt="">
+                                        <div class="carousel-caption">
+                                            <h2>Well bathroom</h2>
+                                        </div>
+                                    </div>
+                                    <!-- End Item -->
+                                    <div class="item">
+                                        <img src="images/slider/slider-4.jpg" alt="">
+                                        <div class="carousel-caption">
+                                            <h2>awesome bedroom</h2>
+                                        </div>
+                                    </div>
+                                    <!-- End Item -->*@
+</div>
+                            <!-- End Carousel Inner -->
+                            <ul class="nav nav-pills nav-justified">
+                                <li data-target="#myCarousel" data-slide-to="0" class="active">
+                                    <a href="#">
+                                        <img src="images/slider/slider-1.jpg" alt="">
+                                    </a>
+                                </li>
+                                <li data-target="#myCarousel" data-slide-to="1">
+                                    <a href="#">
+                                        <img src="images/slider/slider-2.jpg" alt="">
+                                    </a>
+                                </li>
+                                <li data-target="#myCarousel" data-slide-to="2">
+                                    <a href="#">
+                                        <img src="images/slider/slider-3.jpg" alt="">
+                                    </a>
+                                </li>
+                                <li data-target="#myCarousel" data-slide-to="3">
+                                    <a href="#">
+                                        <img src="images/slider/slider-4.jpg" alt="">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- End Carousel -->
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. </p>
+                        <div class="at-sec-title at-sec-title-left">
+                            <h2>Property <span>Features</span></h2>
+                            <div class="at-heading-under-line">
+                                <div class="at-heading-inside-line"></div>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum totam et dolores voluptatem porro tempore temporibus ducimus</p>
+                        </div>
+                        <div class="row at-property-features">
+                            <div class="col-md-6 clearfix">
+                                <ul>
+                                    <li>
+                                        Property ID : <span class="pull-right">AB-010234</span>
+                                    </li>
+                                    <li>
+                                        Full Area : <span class="pull-right">520 sqft</span>
+                                    </li>
+                                    <li>
+                                        Bedrooms : <span class="pull-right">6</span>
+                                    </li>
+                                    <li>
+                                        Bathrooms : <span class="pull-right">3</span>
+                                    </li>
+                                    <li>
+                                        Garages : <span class="pull-right">1</span>
+                                    </li>
+                                    <li>
+                                        swimming pool : <span class="pull-right">Yes</span>
+                                    </li>
+                                    <li>
+                                        Party Rooms : <span class="pull-right">Yes</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>
+                                        Status : <span class="pull-right"> for Sale</span>
+                                    </li>
+                                    <li>
+                                        Kitchen : <span class="pull-right">2</span>
+                                    </li>
+                                    <li>
+                                        AC Rooms: <span class="pull-right">4</span>
+                                    </li>
+                                    <li>
+                                        Internet : <span class="pull-right">Yes</span>
+                                    </li>
+                                    <li>
+                                        Cable TV : <span class="pull-right">Yes</span>
+                                    </li>
+                                    <li>
+                                        Balcony : <span class="pull-right">Yes</span>
+                                    </li>
+                                    <li>
+                                        Pool : <span class="pull-right">Yes</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="at-form-area">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="/GiaoDienChinh/ForDetails/js/app.js"></script>
+    <script src="/GiaoDienChinh/ForDetails/js/bootstrap-dropdownhover.min.js"></script>
+    <script src="/GiaoDienChinh/ForDetails/js/bootstrap.min.js"></script>
+    <script src="/GiaoDienChinh/ForDetails/js/css3-animate-it.js"></script>
+    <script src="/GiaoDienChinh/ForDetails/js/dyscrollup.js"></script>
+    <script src="/GiaoDienChinh/ForDetails/js/featherlight.gallery.min.js"></script>
+    <script src="/GiaoDienChinh/ForDetails/js/featherlight.min.js"></script>
+    <script src="/GiaoDienChinh/ForDetails/js/google-map.js"></script>
+    <script src="/GiaoDienChinh/ForDetails/js/jarallax.js"></script>
+    <script src="/GiaoDienChinh/ForDetails/js/jquery-scrolltofixed-min.js"></script>
+    <script src="/GiaoDienChinh/ForDetails/js/jquery-ui.js"></script>
+    <script src="/GiaoDienChinh/ForDetails/js/jquery.flexslider.js"></script>
+    <script src="/GiaoDienChinh/ForDetails/js/jquery.min.js"></script>
+    <script src="/GiaoDienChinh/ForDetails/js/jquery.ripples.js"></script>
+    <script src="/GiaoDienChinh/ForDetails/js/main.js"></script>
+    <script src="/GiaoDienChinh/ForDetails/js/morphext.min.js"></script>
+    <script src="/GiaoDienChinh/ForDetails/js/owl.carousel.min.js"></script>
+    <script src="/GiaoDienChinh/ForDetails/js/retina.js"></script>
+    <script src="/GiaoDienChinh/ForDetails/js/slick.min.js"></script>
+
+    <!-- Visual Studio Browser Link -->
+    <script type="application/json" id="__browserLink_initializationData">
+        {"appName":"Chrome","requestId":"99129d4a1cc840c0b2ee1dfd5ff32008"}
+    </script>
+    <script type="text/javascript" src="http://localhost:1304/42dc5bdacd3141c79c7d84401665f8ff/browserLink" async="async"></script>
+    <!-- End Browser Link -->
+    <!-- Mirrored from awesome-theme.com/tf/projects/homy/properties-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 01 Dec 2017 12:46:18 GMT -->
