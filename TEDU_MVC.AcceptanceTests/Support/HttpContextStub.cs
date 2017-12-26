@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using Moq;
 using TechTalk.SpecFlow;
 
@@ -29,27 +30,19 @@ namespace TEDU_MVC.AcceptanceTests.Support
             return httpContextStub.Object;
         }
 
-        public static void SetupController(Controller controller)
+        public static void SetupController(Controller controller, RouteData routeData)
         {
-            controller.ControllerContext = new ControllerContext { HttpContext = Get() };
+            controller.ControllerContext = new ControllerContext { HttpContext = Get(), RouteData = routeData };
         }
-
         private class StubSession : HttpSessionStateBase
         {
             private readonly Dictionary<string, object> _state = new Dictionary<string, object>();
 
-            //public override object this[string name]
-            //{
-            //    //get {
-            //    //    if (!_state.ContainsKey(name))
-            //    //    {
-            //    //        _state[name] = null;    }
-            //    //    else {
-            //    //        _state[name];
-            //    //    }
-            //    //}
-            //    //set { _state[name] = value; }
-            //}
+            public override object this[string name]
+            {
+                get { return !_state.ContainsKey(name) ? null : _state[name]; }
+                set { _state[name] = value; }
+            }
         }
     }
 }

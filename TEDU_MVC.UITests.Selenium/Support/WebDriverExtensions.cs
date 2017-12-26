@@ -33,7 +33,12 @@ namespace TEDU_MVC.UITests.Selenium.Support
             //            wait.Until( _ => control.Value == value);
             Thread.Sleep(1000);
         }
-
+        // Search
+        public static string FindElementsByLinkTestTo(this IWebDriver browser, string text)
+        {
+            var strig = browser.FindElement(By.LinkText(text));
+            return strig.Text;
+        }
         public static void SubmitForm(this IWebDriver browser, string formId = null)
         {
             var form = formId == null ? GetForm(browser) : browser.FindElements(By.Id(formId)).First();
@@ -45,6 +50,11 @@ namespace TEDU_MVC.UITests.Selenium.Support
         public static void FieldText(this IWebDriver browser, string id,string text)
         {
             browser.FindElement(By.Id(id)).SendKeys(text);
+            Thread.Sleep(1000);
+        }
+        public static void FieldTextByClass(this IWebDriver browser, string id, string text)
+        {
+            browser.FindElement(By.ClassName(id)).SendKeys(text);
             Thread.Sleep(1000);
         }
 
@@ -85,7 +95,15 @@ namespace TEDU_MVC.UITests.Selenium.Support
             return form.FindElement(By.Id(field));
 
         }
-
+        //DropdwnList
+        public static void DropdownListTo(this IWebDriver browser, string mySelectID, string value) {
+          
+                var selectedOption = browser.FindElements(By.TagName("span")).FirstOrDefault(e => e.Selected);
+           
+                new SelectElement(selectedOption).SelectByText(value);
+        }
+    
+        //
         private static IWebElement GetForm(IWebDriver browser)
         {
             Thread.Sleep(1000);
@@ -96,8 +114,7 @@ namespace TEDU_MVC.UITests.Selenium.Support
         {
       
            browser.Navigate().GoToUrl(new Uri(new Uri(ConfigurationManager.AppSettings["BaseUrl"]), relativeUrl));
-            //browser.Navigate().GoToUrl(new Uri(new Uri("http://localhost:2489/"), relativeUrl));
-           // browser.Navigate().GoToUrl("");
+           
         }
 
         public static DropDown GetDropDown(this IWebDriver browser, string id)
