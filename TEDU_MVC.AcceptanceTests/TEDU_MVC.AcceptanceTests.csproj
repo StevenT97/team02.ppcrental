@@ -136,11 +136,58 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Drivers\Drivers\Home\HomeDriver.cs" />
+    <Compile Include="Drivers\Drivers\PropertyDetails\PropertyDriver.cs" />
+    <Compile Include="Drivers\Drivers\Search\SearchDriver.cs" />
+    <Compile Include="Drivers\Drivers\Search\SearchResultState.cs" />
+    <Compile Include="Drivers\Drivers\ShoppingCart\ShoppingCartDriver.cs" />
     <Compile Include="Drivers\PropertyDetails\PropertyDriver.cs" />
     <Compile Include="Drivers\Home\HomeDriver.cs" />
     <Compile Include="Drivers\Search\SearchDriver.cs" />
     <Compile Include="Drivers\Search\SearchResultState.cs" />
     <Compile Include="Drivers\ShoppingCart\ShoppingCartDriver.cs" />
+    <Compile Include="Feature\Feature\Login.feature.cs" />
+    <Compile Include="Feature\Feature\Login1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Login.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\Feature\PostProject.feature.cs" />
+    <Compile Include="Feature\Feature\PostProject1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PostProject.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\Feature\PostPropertyBackground.feature.cs" />
+    <Compile Include="Feature\Feature\PostPropertyBackground1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PostPropertyBackground.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\Feature\SearchDemo.feature.cs" />
+    <Compile Include="Feature\Feature\SearchDemo1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchDemo.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\Feature\SearchSteps.feature.cs" />
+    <Compile Include="Feature\Feature\SearchSteps1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchSteps.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\Feature\ViewDetailProject.feature.cs" />
+    <Compile Include="Feature\Feature\ViewDetailProject1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewDetailProject.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\Feature\ViewListProject.feature.cs" />
+    <Compile Include="Feature\Feature\ViewListProject1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewListProject.feature</DependentUpon>
+    </Compile>
     <Compile Include="Feature\Login.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -177,6 +224,7 @@
     <Compile Include="StepDefintions\PropertySteps.cs" />
     <Compile Include="StepDefintions\SearchDemoSteps.cs" />
     <Compile Include="StepDefintions\PostPorjectSteps.cs" />
+    <Compile Include="StepDefintions\ViewDetailProjectSteps.cs" />
     <Compile Include="StepDefintions\ViewListProjectSteps.cs" />
     <Compile Include="Support\ActionResultExtensions.cs" />
     <Compile Include="Support\CatalogContext.cs" />
@@ -191,6 +239,34 @@
     </None>
     <None Include="Default.srprofile">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Feature\Feature\Login.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Login1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Feature\Feature\PostProject.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PostProject1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Feature\Feature\PostPropertyBackground.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PostPropertyBackground1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Feature\Feature\SearchDemo.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SearchDemo1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Feature\Feature\SearchSteps.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SearchSteps1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Feature\Feature\ViewDetailProject.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ViewDetailProject1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Feature\Feature\ViewListProject.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ViewListProject1.feature.cs</LastGenOutput>
     </None>
     <None Include="Feature\Login.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
