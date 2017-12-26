@@ -9,6 +9,7 @@ using OpenQA.Selenium.Chrome;
 using System.Threading;
 using TEDU_MVC.UITests.Selenium.Support;
 
+//Author: Ngo Thi Hoai Mi 
 namespace TEDU_MVC.AcceptanceTests.StepDefintions
 {
     [Binding, Scope(Tag ="web")]
