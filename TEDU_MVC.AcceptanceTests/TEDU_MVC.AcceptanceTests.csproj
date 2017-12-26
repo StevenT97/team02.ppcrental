@@ -138,6 +138,8 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Drivers\PropertyDetails\PropertyDriver.cs" />
     <Compile Include="Drivers\Home\HomeDriver.cs" />
+    <Compile Include="Drivers\PropertyDetails\PropertyDriverM.cs" />
+    <Compile Include="Drivers\PropertyDetails\PropertyDriverT.cs" />
     <Compile Include="Drivers\Search\SearchDriver.cs" />
     <Compile Include="Drivers\Search\SearchResultState.cs" />
     <Compile Include="Drivers\ShoppingCart\ShoppingCartDriver.cs" />
@@ -146,15 +148,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Login.feature</DependentUpon>
     </Compile>
-    <Compile Include="Feature\PostProject.feature.cs">
+    <Compile Include="Feature\PostProperty.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PostProject.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Feature\PostPropertyBackground.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PostPropertyBackground.feature</DependentUpon>
+      <DependentUpon>PostProperty.feature</DependentUpon>
     </Compile>
     <Compile Include="Feature\SearchDemo.feature.cs">
       <AutoGen>True</AutoGen>
@@ -191,13 +188,9 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Login.feature.cs</LastGenOutput>
     </None>
-    <None Include="Feature\PostProject.feature">
+    <None Include="Feature\PostProperty.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>PostProject.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Feature\PostPropertyBackground.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>PostPropertyBackground.feature.cs</LastGenOutput>
+      <LastGenOutput>PostProperty.feature.cs</LastGenOutput>
     </None>
     <None Include="Feature\SearchDemo.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

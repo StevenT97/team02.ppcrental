@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using Moq;
 using TechTalk.SpecFlow;
 
@@ -29,9 +30,9 @@ namespace TEDU_MVC.AcceptanceTests.Support
             return httpContextStub.Object;
         }
 
-        public static void SetupController(Controller controller)
+        public static void SetupController(Controller controller, RouteData routeData)
         {
-            controller.ControllerContext = new ControllerContext { HttpContext = Get() };
+            controller.ControllerContext = new ControllerContext { HttpContext = Get(), RouteData = routeData };
         }
 
         private class StubSession : HttpSessionStateBase
